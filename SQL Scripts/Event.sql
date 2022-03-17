@@ -1,0 +1,9 @@
+INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (0, South Africa, [[Johannesburg]], African Youth Championship, , 2011);
+INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (1, USA, [[Pontiac]], [[Michigan]], Green Soccer Bowl, , 2010);
+INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (2, South Africa, , African Nations Championship, {{#expr: 26328 + 14000 + 20000 + 18407 + 35000 + 1000 + 4000 + 2000 + 5000 + 3000 + 7200 + 2500 + 3500 + 16000 + 7000 + 10000 + 6500 + 5000 + 6000 + 5000 + 2000 + 3000 + 3500 + 7000 + 8000 + 13000 + 6000 + 12000 + 5000 + 13000 + 10000 + 16505}}, 2014);
+INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (3, South Africa, Cape Town, Cape Town International Challenge, , 2012);
+INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (4, Mexico, Mexico City, Homeless World Cup, , 2012);
+INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (5, Brazil, , Torneio Internacional Cidade de São Paulo de Futebol Feminino, , 2011);
+INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (6, Brazil, , Torneio Internacional Cidade de São Paulo de Futebol Feminino, , 2010);
+INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (7, Brazil, , Torneio Internacional Cidade de São Paulo de Futebol Feminino, , 2009);
+INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (8, China, [[Yongchuan]], Four Nations Tournament, , 2013);
