@@ -1,4 +1,3 @@
-# What needs to be scraped:
 # - name
 # - status 
 # - type
@@ -6,7 +5,6 @@
 
 import json
 import random
-import re
 
 def randomPrice():
     return round(random.uniform(1.00, 1000.00), 2)
@@ -14,6 +12,8 @@ def randomPrice():
 def toStr(item):
     if item == None or item == "":
         item = "UNKNOWN"
+    if item == "NULL":
+        return item
     return "\"" + str(item) + "\""
 
 namesFile = open("./drugs.json", encoding="utf-8")
@@ -39,7 +39,7 @@ for type in types:
 
 i = 0
 for item in info:
-    f.write("INSERT INTO product (product_key, name, status, type, price_per_unit) VALUES (" + toStr(i) + ", " + toStr(info[item][0]) + ", " + toStr(info[item][1]) + ", " + toStr(info[item][2]) + ", " + toStr(info[item][3]) + ");\n")
+    f.write("INSERT INTO \"Product\" (product_key, name, status, type, price_per_unit) VALUES (" + toStr(i) + ", " + toStr(info[item][0]) + ", " + toStr(info[item][1]) + ", " + toStr(info[item][2]) + ", " + toStr(info[item][3]) + ");\n")
     i += 1
 
 f.close()

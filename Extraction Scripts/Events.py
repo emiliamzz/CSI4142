@@ -1,4 +1,3 @@
-# What needs to be scraped:
 # - event_location_country
 # - specific_location
 # - name
@@ -55,17 +54,43 @@ def scrape(info):
         attendance = attendance.split("+")
         total = 0
         for i in range(len(attendance)):
+            attendance[i] = re.sub("([\(\[]).*?([\)\]])", "", attendance[i])
             num = re.sub("\D", "", attendance[i])
             if num != "":
                 total += int(num)
         attendance = total
+    if attendance == None or attendance == 0:
+        attendance = "NULL"
 
     return year, country, location, name, attendance
 
 def toStr(item):
     if item == None or item == "":
         item = "UNKNOWN"
+    if item == "NULL":
+        return item
     return "\"" + str(item) + "\""
+
+def toStrCountry(country):
+    if country == "Canada":
+        country = "1"
+    elif country == "USA":
+        country = "2"
+    elif country == "Mexico":
+        country = "3"
+    elif country == "China":
+        country = "4"
+    elif country == "Brazil":
+        country = "5"
+    elif country == "South Africa":
+        country = "6"
+    elif country == "Pakistan":
+        country = "7"
+    elif country == "Egypt":
+        country = "8"
+    elif country == "India":
+        country = "9"
+    return toStr(country)
 
 tree = html.parse("./event_wiki.xml")
 root = tree.getroot()[0]
@@ -78,7 +103,7 @@ for child in root:
     year, country, location, name, attendance = scrape(info)
     if year < 2005 or year > 2020 or country not in countries:
         continue
-    f.write("INSERT INTO event (event_key, event_location_country, specific_location, name, attendance, date) VALUES (" + toStr(i) + ", " + toStr(country) + ", " + toStr(location) + ", " + toStr(name) + ", " + toStr(attendance) + ", " + toStr(year) + ");\n")
+    f.write("INSERT INTO \"Event\" (event_key, event_location_country, specific_location, name, attendance, date) VALUES (" + toStr(i) + ", " + toStrCountry(country) + ", " + toStr(location) + ", " + toStr(name) + ", " + toStr(attendance) + ", " + toStr(year) + ");\n")
     i += 1
 
 f.close()
