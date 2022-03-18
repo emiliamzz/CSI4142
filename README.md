@@ -14,7 +14,6 @@ Riley
 | [Drug Products](https://open.canada.ca/data/en/dataset/bf55e42a-63cb-4556-bfd8-44f26e5a36fe) | Product | - name <br> - status <br> - type |
 | [Events Data Set](https://figshare.com/articles/dataset/EventWiki/3171472) | Event | - event_location_country <br> - specific_location <br> - name <br> - type <br> - attendance <br> - date |
 | [WHO Data Set](https://apps.who.int/nha/database) | Fact Table | - research_budget |
-| [Wholesale Drugs](https://data.chhs.ca.gov/dataset/prescription-drug-wholesale-acquisition-cost-wac-increases) | Product <hr> Fact Table | - price_per_unit <hr> - sales_total
 
 Note: For deliverable #2, we can manually input the country names + years. <br>
-Considering doing the same for events - thoughts?
+Sold and cost can be randomly generated as we're assuming that data would be given by the client.

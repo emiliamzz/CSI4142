@@ -25,7 +25,7 @@ def scrape(info):
     year = info.get("year", info.get("date", info.get("dates")))
     country = info.get("country", info.get("countries", info.get("location")))
     location = info.get("city", info.get("cities", info.get("location")))
-    attendance = info.get("attendace")
+    attendance = info.get("attendance")
     name = info.get("title", info.get("name"))
     if name == None:
         for key in info.keys():
@@ -42,26 +42,34 @@ def scrape(info):
 
     if country != None:
         for c in countries:
-            if c in country:
+            if c.lower() in country.lower():
                 country = c
                 break
 
     if location != None:
         location = location.split(",")
         location = location[0]
-        location = re.sub("^a-zA-Z", "", location)
+        location = re.sub("[^a-zA-Z]", "", location)
+
+    if attendance != None:
+        attendance = attendance.split("+")
+        total = 0
+        for i in range(len(attendance)):
+            num = re.sub("\D", "", attendance[i])
+            if num != "":
+                total += int(num)
+        attendance = total
 
     return year, country, location, name, attendance
 
 def toStr(item):
-    if item == None:
-        return "NULL"
-    else:
-        return "\"" + str(item) + "\""
+    if item == None or item == "":
+        item = "UNKNOWN"
+    return "\"" + str(item) + "\""
 
 tree = html.parse("./event_wiki.xml")
 root = tree.getroot()[0]
-countries = ["Canada", "USA", "Mexico", "China", "Brazil", "South Africa", "Mongolia", "Egypt", "India"]
+countries = ["Canada", "USA", "Mexico", "China", "Brazil", "South Africa", "Pakistan", "Egypt", "India"]
 i = 0
 f = open("Event.sql", "w", encoding="utf-8")
 
