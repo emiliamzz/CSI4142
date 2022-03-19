@@ -11,6 +11,15 @@ def randomBudget():
 
 f = open("facttable.sql", "w")
 
+# for i in range(54073):
+#     for x in range (206):
+#         for z in range(126):
+#             for l in range (9):
+#                 for y in range (16):
+#                     revenue = randomPrice()
+#                     budget = randomBudget()
+#                     f.write("INSERT INTO \"Fact Table\" (research_budget, sales_total_revenue, product_key, event_key, affliction_key, country_key, year_key) VALUES (" + toStr(budget) + ", " + toStr(revenue) + ", " + toStr(i) + ", " + toStr(x) + ", " + toStr(z) + ", " + toStr(l) + ", " + toStr(y) + ");\n")
+
 for o in range(5000):
     i = random.randint(0, 54073)
     x = random.randint(0, 206)
